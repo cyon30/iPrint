@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fa/fontawesome-all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iBarscan</title>
+    <link rel="icon" href="img/icon.png">
+</head>
+<body>
+
+    <div class="nav-h1">
+        <p>Select an option</p>
+    </div>
+
+    <div>
+        <nav>
+            <ul>
+                <li><a href="{{ path('print-page') }}">Single Print</a></li>
+                <li><a href="{{ path('search-page') }}">Search</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    {% block body %}{% endblock %}
+
+</body>
+</html>

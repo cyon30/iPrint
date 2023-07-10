@@ -1,0 +1,53 @@
+{% extends 'index.html.twig' %}
+
+{% block body %}
+    <div class="wrapper">
+        <div class="user-form">
+            <div class="user-form-header">
+                <h2>Search details</h2>
+            </div>
+        </div>
+
+        <div class="search">
+            <form action="" method="get">
+                <label>Search</label>
+                <input type="text" name="q" value="" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        {% if items is defined %}
+            <table style="margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>
+                            <nobr>ID <a href="{{ path('search-page', {'s': 'id', 'd': sort.id}) }}">
+                            <i class="fa fa-sort"></i></a></nobr>
+                        </th>
+                        <th>Item Code <a href="{{ path('search-page', {'s': 'code', 'd': sort.code}) }}"><i class="fa fa-sort"></i></a></th>
+                        <th>IDESC <a href="{{ path('search-page', {'s': 'description', 'd': sort.description}) }}"><i class="fa fa-sort"></i></a></th>
+                        <th>BINNO <a href="{{ path('search-page', {'s': 'bin', 'd': sort.bin}) }}"><i class="fa fa-sort"></i></a></th>
+                        <th>BAR <a href="{{ path('search-page', {'s': 'bar', 'd': sort.bar}) }}"><i class="fa fa-sort"></i></a></th>
+                        <th>Printed<i class="fa fa-print"></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td>
+                                <a href='{{ path('print-page', {'id': item.id}) }}'>{{ item.id }}</a>
+                            </td>
+                            <td>{{ item.code }}</td>
+                            <td>{{ item.description }}</td>
+                            <td>{{ item.bin }}</td>
+                            <td>{{ item.bar }}</td>
+                            <td>{{ (item.prints | length) > 0 ? 'Yes' : 'No' }}</td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        {% endif %}
+
+    </div>
+{% endblock %}

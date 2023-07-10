@@ -1,0 +1,85 @@
+{% extends 'index.html.twig' %}
+
+{% block body %}
+
+    <div class="wrapper">
+
+        <form method="POST" action="">
+
+            <div class="user-form">
+
+                <div class="user-form-header">
+                    <h2>Print single Barcode</h2>
+                </div>
+
+                <div class="user-form-content">
+
+                    <p>Kindly ensure you confirm the correct spelling. The * is mandatory!</p>
+
+                    <br/>
+
+                    <div class="form-group">
+                        <label for="icode">*Item Code</label>
+                        <input id="icode" type="text" name='code' value="{{ item.code | default('') }}" required="required" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="idesc">*Item Description</label>
+                        <input id="idesc" type="text" name='description' value="{{ item.description | default('') }}" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ibin">*Bin Number</label>
+                        <input id="ibin" type="text" name='bin' value="{{ item.bin | default('') }}"  placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ibin">*Barcode</label>
+                        <input id="ibin" type="text" name='bar' value="{{ item.bar | default('') }}"  placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        {% if item is defined and item.id is defined %}
+                            <button style="display: inline-block" class="" type="submit" value="print">&nbsp;Update</button>
+                            <a href="{{ path('barcode-print-page', {'id': item.id}) }}" target="_blank" style="display: inline-block" class="">&nbsp;Print</a>
+                        {% endif %}
+                    </div>
+
+                    <div class="clear"></div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    {% if item.prints is defined and (item.prints is not null and item.prints | length > 0) %}
+        <div style="margin-top: 20px;" class="wrapper">
+            <div class="user-form">
+                <div class="user-form-header">
+                    <h2>Print Dates</h2>
+                </div>
+                <div class="user-form-content">
+                    <table style="margin-top: 20px;">
+                        <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th class="text-center">Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for print in item.prints %}
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ print.printDate.format('Y-m-d H:i') }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+
+{% endblock %}

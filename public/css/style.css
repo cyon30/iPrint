@@ -1,0 +1,322 @@
+@font-face {
+    font-family: "barcode";
+    src: url("/font/LibreBarcode39Text-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    border: #1997c6 solid;
+}
+
+.wrapper-logo {
+    margin: 0 auto;
+    width: 1800px;
+    background-color: rgb(51, 17, 240);
+}
+
+.wrapper-tb {
+    font-size: 15px;
+}
+
+.search {
+    text-align: center;
+
+}
+
+input {
+    outline: none;
+    border: 1px solid #fff;
+
+}
+
+input:hover {
+    box-shadow: 0 0 4px #1997c6;
+    border: 1px solid #39bff0;
+}
+
+input:focus {
+    box-shadow: 0 0 4px #1997c6;
+    border: 1px solid #7bc2db;
+}
+
+body {
+    background-color: #252834;
+
+}
+
+.backgroud {
+    background-color: white;
+
+}
+
+nav {
+    width: 100%;
+    height: 25px;
+    background: #252834;
+
+
+}
+
+ul {
+    margin: 0px;
+    text-align: center;
+}
+
+ul li {
+    list-style: none;
+    display: inline-block;
+    line-height: 20px;
+}
+
+ul li a {
+    display: block;
+    text-decoration: none;
+    color: #f8f8f8;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    padding: 0 20px;
+
+}
+
+ul li a:hover {
+    color: rgb(255, 1, 1);
+    font-weight: bold;
+
+}
+
+.home-h1 {
+    color: White;
+    font-size: 60px;
+    text-align: center;
+    background-color: #1997c6;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav-h1 p {
+
+    background-color: #1997c6;
+    text-align: center;
+    margin: 10px 0px;
+
+}
+
+p {
+    text-align: left;
+    color: #252834;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.result {
+    border: 1px solid black;
+
+}
+
+table {
+    border-style: solid;
+    margin: 0 auto;
+    border-color: black;
+    border-width: 1px;
+    background-color: rgb(187, 155, 155);
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+
+
+}
+
+table tr td {
+    text-align: left;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    padding: 0 20px;
+
+}
+
+.table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.table tbody tr td {
+    border: 1px solid black;
+    margin: 0;
+    padding: 5px;
+}
+
+
+.result2 {
+    border: 1px solid black;
+}
+
+.header1 {
+    border: 1px solid black;
+    color: black;
+    font-size: 10px;
+    text-align: left;
+}
+
+
+.header2 {
+    border: 1px solid rgb(136, 49, 49);
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+
+.mandatory {
+    color: #B8860B;
+    font-size: 18px;
+    font-family: Gadget;
+
+}
+
+.print {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.barcode {
+    transition-property: opacity, transform;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    font-optical-sizing: auto;
+    opacity: 1;
+    font-family: "barcode";
+    line-height: initial;
+    transition-duration: 350ms;
+    font-size: 60px;
+    text-align: center;
+}
+
+.btn {
+    margin: 0;
+    padding: 0 4px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: #1997c6;
+}
+
+.cel {
+    color: #1997c6;
+    margin: 0;
+    padding: 0 4px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.cel:hover {
+    color: #1997c6;
+}
+
+.att {
+    margin: 0;
+    padding: 0 4px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.att:hover {
+    color: #1997c6;
+}
+
+.che {
+    margin: 0;
+    padding: 0 4px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.che:hover {
+    color: #1997c6;
+}
+
+.clear {
+    float: none;
+}
+
+.user-form {
+    font-family: 'Roboto', sans-serif;
+    background: #252834;
+    margin: 0 auto;
+}
+
+.user-form .user-form-header {
+
+    background-color: #1997c6;
+    margin: 10px 0px;
+
+}
+
+.user-form .user-form-header h2 {
+    font-size: 18px;
+    text-align: center;
+
+
+}
+
+.user-form .user-form-content {
+    padding: 10px;
+}
+
+.user-form .user-form-content p {
+    padding: 10px;
+    color: #fff;
+}
+
+.form-group {
+    padding: 6px 0;
+    font-size: 16px;
+
+}
+
+.form-group label {
+    width: 180px;
+    float: left;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.form-group input,
+.form-group select {
+    width: 250px;
+    font-size: 16px;
+    padding: 2px;
+    background-color: #252834;
+    font-family: 'Roboto', sans-serif;
+    color: #fff
+
+
+}
+
+.form-group button {
+    width: auto;
+    padding: 7px 15px;
+    background-color: #252834;
+    color: white;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    font: 300 20px/45px Roboto, sans-serif;
+}
+
+.form-group button:hover {
+    box-shadow: 0 0 4px #1997c6;
+    border: 1px solid #7bc2db;
+}

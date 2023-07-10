@@ -1,0 +1,43 @@
+# dockerfile
+FROM php:8.2-apache
+ENV TZ=Africa/Johannesburg
+
+RUN echo "Africa/Johannesburg" > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
+
+# Replace defailt apache config
+COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
+
+# Setup image
+RUN apt-get update && apt-get upgrade -y
+
+# Install needed tools
+RUN apt-get install -y libzip-dev zlib1g-dev libcurl4-openssl-dev libxml2-dev libssl-dev libpng-dev git unzip zip curl wget
+
+# Install php ext
+RUN apt-get install -y libpq-dev \
+    && docker-php-ext-install gd zip\
+    && docker-php-ext-install mysqli pdo pdo_mysql \
+    && docker-php-ext-install opcache \
+    && docker-php-ext-install intl
+
+# Setup Apache2 config
+RUN a2enmod rewrite
+
+# Install Composer
+run php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+    && php -r "if (hash_file('sha384', 'composer-setup.php') === 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
+    && php composer-setup.php \
+    && php -r "unlink('composer-setup.php');" \
+    && mv composer.phar /usr/local/bin/composer
+
+# PHP.ini Settings update
+RUN cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini && \
+sed -i 's/;date.timezone =/date.timezone = "Africa\/Johannesburg"/g' /usr/local/etc/php/php.ini
+
+# Install node helper package globally
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt update \
+    && apt upgrade -y \
+    && apt install -y nodejs \
+    && npm install --global gulp-cli --force
